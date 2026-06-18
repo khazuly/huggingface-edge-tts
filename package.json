@@ -1,0 +1,62 @@
+{
+  "name": "huggingface-edge-tts",
+  "version": "1.0.0",
+  "description": "Node.js client and CLI for the innoai Edge TTS Hugging Face Space",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "hf-edge-tts": "./bin/hf-edge-tts.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "check": "node scripts/check.js",
+    "test": "node --test test/client.test.js",
+    "test:live": "node scripts/live-test.js",
+    "typecheck": "tsc --noEmit",
+    "prepack": "npm run check && npm run typecheck && npm run build && npm test"
+  },
+  "keywords": [
+    "tts",
+    "text-to-speech",
+    "edge-tts",
+    "huggingface",
+    "gradio",
+    "speech",
+    "audio",
+    "indonesian"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "@gradio/client": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.0"
+  }
+}
